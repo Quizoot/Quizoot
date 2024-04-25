@@ -4,7 +4,7 @@ register()
 
 definePageMeta({
   title: 'Home',
-  description: 'Home Page - CS3110 Project',
+  description: 'Home Page - Quizoot',
 })
 </script>
 

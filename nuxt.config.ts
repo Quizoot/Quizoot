@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-const routerBase = process.env.GH_PAGES ? '/CS3110-Project/' : '/'
+const routerBase = process.env.GH_PAGES ? '/Quizoot/' : '/'
 
 export default defineNuxtConfig({
   app: {
@@ -50,8 +50,8 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    name: 'CS3110 Project',
-    description: 'CS3110 Project',
+    name: 'Quizoot',
+    description: 'Play Quizoot online with friends!',
   },
   eslint: {
     checker: true,

@@ -2,19 +2,19 @@
 const route = useRoute()
 
 useHead({
-  titleTemplate: route.meta.title ? `${route.meta.title} - CS3110 Project` : 'CS3110 Project',
+  titleTemplate: route.meta.title ? `${route.meta.title} - Quizoot` : 'Quizoot',
   meta: [
     {
       name: 'description',
-      content: 'CS3110 Project',
+      content: 'Play Quizoot with friends online!',
     },
     {
       name: 'author',
-      content: 'CS3110 Group 5',
+      content: 'Trey DeaBueno',
     },
     {
       name: 'keywords',
-      content: 'CS3110, Project, Group 5',
+      content: 'Quizoot/Quizoot, Quizoot, Multiplayer, Online, Game',
     },
   ],
   htmlAttrs: {

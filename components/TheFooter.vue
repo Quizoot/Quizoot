@@ -7,7 +7,7 @@
     </nav>
     <nav>
       <div class="grid grid-flow-col gap-4">
-        <NuxtLink to="https://github.com/TreyRuffy/CS3110-Project" target="_blank" rel="noopener">
+        <NuxtLink to="https://github.com/Quizoot/Quizoot" target="_blank" rel="noopener">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
