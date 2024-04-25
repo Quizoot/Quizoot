@@ -4,7 +4,7 @@ export class RoomSettings {
   maxPlayers = 100
   startTimer = 0
   questionCount = 10
-  questionTimer = 30000
+  questionTimer = 20000
   questionPoints = 1000
   allowAnswerTimer = 0
 
