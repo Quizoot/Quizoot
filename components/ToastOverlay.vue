@@ -4,7 +4,7 @@ const toast = computed(() => toastStore.getToast())
 </script>
 
 <template>
-  <div v-if="toast" :key="toast.title" class="toast">
+  <div v-if="toast" :key="toast.title" class="toast z-[999]">
     <div
       class="alert sm:grid-flow-col"
       :class="[
