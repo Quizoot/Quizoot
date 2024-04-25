@@ -52,7 +52,7 @@ switch (props.position) {
       ]"
     >
       <UiHeadingThree class="font-[600] sm:mt-4 sm:p-[1vh]">{{ rank }}</UiHeadingThree>
-      <UiHeadingFour v-if="!hide" class="overflow-hidden font-[500] sm:p-[1vh]">
+      <UiHeadingFour v-if="!hide" class="font-[500] sm:p-[1vh]">
         {{ name }}
       </UiHeadingFour>
       <UiHeadingFive v-if="!hide" class="font-[500] sm:mb-4 sm:p-[1vh]">{{ score }}</UiHeadingFive>

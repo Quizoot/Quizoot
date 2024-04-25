@@ -136,7 +136,7 @@ if (socket.value !== null) {
                 type="text"
                 placeholder="Username"
                 class="grow"
-                :maxlength="32"
+                :maxlength="20"
                 :required="true"
                 aria-description="Username entry field"
                 oninput="this.value = this.value.replace(' ', '')"
