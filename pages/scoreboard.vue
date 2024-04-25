@@ -62,11 +62,19 @@ onMounted(async () => {
         :question-number="multiplayerStore.questionNumber"
         :score="multiplayerStore.score"
       />
-      <div class="m-[2vh] mb-0 text-center">
-        <UiHeadingOne class="font-[600]">Scoreboard</UiHeadingOne>
+      <!-- Scoreboard title and "New Game button for larger screens" -->
+      <div class="hidden w-full grid-cols-3 sm:grid">
+        <div></div>
+        <div class="m-[2vh] mb-0 text-center">
+          <UiHeadingOne class="font-[600]">Scoreboard</UiHeadingOne>
+        </div>
+        <div v-if="multiplayerStore.host" class="mt-4 hidden text-right sm:block">
+          <UiButtonTopRight @click="socket?.emit('host-restart-game')">New Game</UiButtonTopRight>
+        </div>
       </div>
-      <div v-if="multiplayerStore.host" class="hidden text-right sm:block">
-        <UiButtonTopRight @click="socket?.emit('host-restart-game')">New Game</UiButtonTopRight>
+      <!-- Scoreboard title for smaller screens -->
+      <div class="m-[2vh] mb-0 text-center sm:hidden">
+        <UiHeadingOne class="font-[600]">Scoreboard</UiHeadingOne>
       </div>
       <!--Container for screen under nav bar-->
       <div
