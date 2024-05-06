@@ -4860,15 +4860,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"daisyui@npm:^4.10.4":
-  version: 4.10.4
-  resolution: "daisyui@npm:4.10.4"
+"daisyui@npm:^4.10.5":
+  version: 4.10.5
+  resolution: "daisyui@npm:4.10.5"
   dependencies:
     css-selector-tokenizer: "npm:^0.8"
     culori: "npm:^3"
     picocolors: "npm:^1"
     postcss-js: "npm:^4"
-  checksum: 10c0/416043686ee223a6fc80dc76fb2a053e1a3b7febe4466bc55ac058f34af38da4362f670f039ed514d609909557eac5f1563444b0dcccfbcb951b3632531f1604
+  checksum: 10c0/e5406da22835c25bda94ad42a6d1bfe70a9669a8689bb1649ddafe0ffc1f110069519d059a7fc5c7e225877ed74fe0813b15caf997e8db0df12719b0dbef397b
   languageName: node
   linkType: hard
 
@@ -8448,7 +8448,7 @@ __metadata:
     "@vueuse/core": "npm:^10.9.0"
     "@vueuse/nuxt": "npm:^10.9.0"
     canvas-confetti: "npm:^1.9.3"
-    daisyui: "npm:^4.10.4"
+    daisyui: "npm:^4.10.5"
     eslint: "npm:^9.1.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.1.3"
