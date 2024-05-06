@@ -24,7 +24,7 @@
     "@types/canvas-confetti": "^1.6.4",
     "@types/eslint": "^8.56.10",
     "@types/eslint-config-prettier": "^6.11.3",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.12.10",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
     "daisyui": "^4.10.4",
