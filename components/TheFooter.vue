@@ -39,6 +39,7 @@
             />
           </svg>
         </NuxtLink>
+        <ColorModePicker />
       </div>
     </nav>
     <aside>
