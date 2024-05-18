@@ -35,7 +35,7 @@ function getPlayerList() {
   const list = []
   for (const player of multiplayerStore.playerList) {
     if (player[0] !== multiplayerStore.uuid) {
-      list.push(player[1])
+      list.push({ name: player[1], emoji: '🐸' })
     }
   }
   return list
@@ -49,7 +49,6 @@ function getPlayerList() {
       :question-number="multiplayerStore.questionNumber"
       :score="multiplayerStore.score"
     />
-    <UiHeadingOne>Waiting Room</UiHeadingOne>
     <button
       class="mb-2 mt-4 text-center"
       :class="[multiplayerStore.host ? 'md:hidden' : '']"
@@ -60,11 +59,11 @@ function getPlayerList() {
       </UiHeadingThree>
     </button>
     <div v-if="multiplayerStore.host">
-      <UiHeadingThree class="mb-2 text-center font-[500] md:ml-8 md:text-left">
+      <UiHeadingThree class="mb-2 mt-4 text-center font-[500] md:ml-8 md:text-left">
         Players:
       </UiHeadingThree>
       <div class="grid h-[60vh] max-h-[60vh] md:h-[70vh] md:max-h-[70vh] md:grid-cols-3">
-        <div class="ml-8 overflow-y-auto md:col-span-2 md:overflow-y-auto">
+        <div class="mx-8 overflow-y-auto md:col-span-2 md:overflow-y-auto">
           <PlayerList :players="getPlayerList()" />
         </div>
         <div class="hidden grid-flow-row items-center justify-center md:grid">
@@ -94,26 +93,70 @@ function getPlayerList() {
               >
                 Start
               </UiButtonRegular>
+              <div class="btn btn-circle mx-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-7 w-7"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Start Button Smaller Screens -->
-      <div class="mt-8 flex justify-center md:hidden">
-        <UiButtonBottom
-          class="fixed"
-          @click="
-            () => {
-              if (socket) {
-                socket.emit('host-start-game')
-              } else {
-                console.log('Socket not connected')
+      <div class="mt-8 flex w-screen justify-center md:hidden">
+        <div class="fixed bottom-8">
+          <UiButtonBottom
+            class=""
+            @click="
+              () => {
+                if (socket) {
+                  socket.emit('host-start-game')
+                } else {
+                  console.log('Socket not connected')
+                }
               }
-            }
-          "
-        >
-          Start
-        </UiButtonBottom>
+            "
+          >
+            Start
+          </UiButtonBottom>
+          <div class="btn btn-circle fixed mx-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-7 w-7"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
     <div v-else class="flex h-1/2 items-center justify-center">

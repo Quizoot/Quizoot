@@ -16,6 +16,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  quizName: {
+    type: String,
+    default: 'Quiz',
+  },
 })
 
 const socketStore = useSocketStore()
@@ -55,7 +59,9 @@ const leaveRoom = () => {
         <span v-if="questionNumber !== 0 && !host"
           ><UiHeadingFive>Score: {{ score }}</UiHeadingFive>
         </span>
-        <span v-else></span>
+        <span v-else>
+          <UiHeadingFive>{{ quizName }}</UiHeadingFive>
+        </span>
       </div>
       <div class="navbar-end">
         <button class="btn btn-ghost btn-md text-[16px]" @click="openModal()">
