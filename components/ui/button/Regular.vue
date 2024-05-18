@@ -5,13 +5,17 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  shadow: {
+    type: Boolean,
+    default: true,
+  },
 })
 </script>
 
 <template>
   <button
-    class="text-md btn font-[400] shadow-md md:text-xl"
-    :class="[disabled ? 'btn-disabled' : '']"
+    class="text-md btn font-[400] md:text-xl"
+    :class="[disabled ? 'btn-disabled' : '', shadow ? 'shadow-md' : '']"
   >
     <slot></slot>
   </button>
