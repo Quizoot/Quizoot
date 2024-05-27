@@ -26,7 +26,7 @@
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/node": "^20.12.12",
     "@vueuse/core": "^10.9.0",
-    "@vueuse/nuxt": "^10.9.0",
+    "@vueuse/nuxt": "^10.10.0",
     "daisyui": "^4.11.1",
     "eslint": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
