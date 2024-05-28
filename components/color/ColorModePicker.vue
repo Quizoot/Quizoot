@@ -12,7 +12,7 @@ const toggleColorMode = () => {
 <template>
   <div>
     <button class="btn btn-circle btn-ghost btn-sm" @click="toggleColorMode()">
-      <ColorIconLight v-if="$colorMode.preference === 'dark'" />
+      <ColorIconLight v-if="$colorMode.preference === 'light'" />
       <ColorIconSystem v-else-if="$colorMode.preference === 'system'" />
       <ColorIconDark v-else />
     </button>
