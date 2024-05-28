@@ -78,9 +78,9 @@ function getPlayerList() {
               </button>
             </div>
             <!-- Start button larger screens -->
-            <div class="mt-4 flex justify-center">
+            <div class="mt-4 flex w-full items-center justify-center">
               <UiButtonRegular
-                class="btn-primary btn-wide"
+                class="big-button-size btn-primary"
                 @click="
                   () => {
                     if (socket) {
@@ -93,7 +93,7 @@ function getPlayerList() {
               >
                 Start
               </UiButtonRegular>
-              <div class="btn btn-circle mx-1">
+              <div class="setting-button-placement btn btn-circle fixed mx-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -119,10 +119,10 @@ function getPlayerList() {
         </div>
       </div>
       <!-- Start Button Smaller Screens -->
-      <div class="mt-8 flex w-screen justify-center md:hidden">
+      <div class="mt-8 flex w-screen items-center justify-center md:hidden">
         <div class="fixed bottom-8">
           <UiButtonBottom
-            class=""
+            class="small-button-size"
             @click="
               () => {
                 if (socket) {
@@ -135,7 +135,8 @@ function getPlayerList() {
           >
             Start
           </UiButtonBottom>
-          <div class="btn btn-circle fixed mx-1">
+          <!-- Setting button on smaller devices -->
+          <div class="btn btn-circle fixed mx-1 mt-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -177,3 +178,32 @@ function getPlayerList() {
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Devices such as iPhone 5 */
+@media (max-width: 381px) {
+  .small-button-size {
+    width: 60vw;
+  }
+}
+
+/* Smaller width devices */
+@media (max-width: 949px) {
+  .big-button-size {
+    width: 150px;
+  }
+  .setting-button-placement {
+    margin-left: 210px;
+  }
+}
+
+/* All other devices */
+@media (min-width: 950px) {
+  .big-button-size {
+    width: 200px;
+  }
+  .setting-button-placement {
+    margin-left: 260px;
+  }
+}
+</style>
