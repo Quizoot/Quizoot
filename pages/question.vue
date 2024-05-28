@@ -187,8 +187,8 @@ if (singlePlayer) {
                 : multiplayerStore.multiPlayerQuestion?.question
             }}
           </UiHeadingThree>
-          <UiHeadingThree v-else class="mx-3 mb-2 mt-4 text-center font-semibold"
-            >Loading...
+          <UiHeadingThree v-else class="mx-3 mb-2 mt-4 text-center font-semibold">
+            Loading...
           </UiHeadingThree>
         </div>
       </div>
@@ -197,9 +197,9 @@ if (singlePlayer) {
           <div class="flex items-center justify-center">
             <!-- Timer for bigger screens -->
             <div
-              class="hidden h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg lg:flex lg:h-24 lg:w-24"
+              class="hidden h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg dark:text-black lg:flex lg:h-24 lg:w-24"
             >
-              <span class="countdown absolute flex font-mono text-2xl lg:text-4xl">
+              <span class="countdown absolute flex font-mono text-2xl dark:text-black lg:text-4xl">
                 <span
                   v-if="multiplayerStore.timer !== -1"
                   :style="'--value: ' + multiplayerStore.timer"
@@ -230,9 +230,9 @@ if (singlePlayer) {
             />
             <!-- Timer for smaller screens -->
             <div
-              class="absolute start-[-25px] top-[35%] flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg lg:hidden"
+              class="absolute start-[-25px] top-[35%] flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg dark:text-black lg:hidden"
             >
-              <span class="countdown flex font-mono text-2xl md:text-4xl">
+              <span class="countdown flex font-mono text-2xl dark:text-black md:text-4xl">
                 <span
                   v-if="multiplayerStore.timer !== -1"
                   :style="'--value: ' + multiplayerStore.timer"

@@ -20,7 +20,7 @@ defineProps({
           <UiHeadingFour class="m-6 text-center">{{ player.emoji }}</UiHeadingFour>
         </div>
         <div class="my-2 h-auto justify-center bg-black"></div>
-        <UiHeadingFour class="col-span-2 m-6 justify-center text-center">
+        <UiHeadingFour class="col-span-2 m-6 justify-center text-center dark:text-black">
           {{ player.name }}
         </UiHeadingFour>
       </div>
@@ -30,6 +30,6 @@ defineProps({
 
 <style scoped>
 .custom-grid {
-  grid-template-columns: 1fr 0.5px 1fr 1fr;
+  grid-template-columns: 1fr 1px 1fr 1fr;
 }
 </style>

@@ -97,24 +97,24 @@ watch(multiplayerStore, () => {
     </div>
     <!-- User Waiting -->
     <div class="mb-24 flex flex-grow items-center justify-center">
-      <div v-if="responseState === 'waiting'" class="flex text-4xl">
+      <div v-if="responseState === 'waiting'" class="flex text-4xl dark:text-black">
         <span>Waiting</span>
         <CSSLoader class="ml-1 mt-1" />
       </div>
       <!-- User Correct -->
-      <UiHeadingOne v-else-if="responseState === 'correct'" class="text-center">
+      <UiHeadingOne v-else-if="responseState === 'correct'" class="text-center dark:text-black">
         Correct!
-        <UiHeadingTwo class="mx-4 mt-2">
+        <UiHeadingTwo class="mx-4 mt-2 dark:text-black">
           +{{ streakBonus ? addedScore - streakBonus : addedScore }}
         </UiHeadingTwo>
-        <UiHeadingThree v-if="streakBonus" class="mx-4 mt-4">
+        <UiHeadingThree v-if="streakBonus" class="mx-4 mt-4 dark:text-black">
           Streak Bonus! +{{ streakBonus }}
         </UiHeadingThree>
       </UiHeadingOne>
       <!-- User Incorrect -->
       <div v-else-if="responseState === 'incorrect'" class="text-center">
-        <UiHeadingOne>Incorrect</UiHeadingOne>
-        <UiHeadingTwo v-if="correctAnswer" class="mx-4 mt-2">
+        <UiHeadingOne class="dark:text-black">Incorrect</UiHeadingOne>
+        <UiHeadingTwo v-if="correctAnswer" class="mx-4 mt-2 dark:text-black">
           Correct answer: <b>{{ correctAnswer }}</b>
         </UiHeadingTwo>
       </div>

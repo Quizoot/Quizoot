@@ -52,8 +52,9 @@ multiplayerStore.resetTimer()
             }
           }
         "
-        >Next Question</UiButtonTopRight
       >
+        Next Question
+      </UiButtonTopRight>
     </div>
     <div class="mb-32 flex flex-grow flex-col justify-center">
       <!-- Correct Answer-->
@@ -103,7 +104,7 @@ multiplayerStore.resetTimer()
                 "
               />
             </div>
-            <div class="card w-auto bg-[#FCC93B] shadow-md">
+            <div class="card w-auto bg-[#FCC93B] shadow-md dark:bg-[#c99c00]">
               <QuestionAnswerCard
                 :num-answers="getCount(multiplayerStore.multiPlayerQuestion?.answers[3])"
                 :country-choice="multiplayerStore.multiPlayerQuestion?.answers[3]"

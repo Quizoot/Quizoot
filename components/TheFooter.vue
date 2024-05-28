@@ -1,17 +1,17 @@
 <template>
-  <footer class="footer footer-center bg-zinc-800 p-10 text-white">
+  <footer class="footer footer-center bg-[#1D242B] p-10 text-white dark:bg-base-200">
     <nav class="grid grid-flow-col gap-4">
       <UiParagraph><NuxtLink to="/" class="link-hover link">Quizoot</NuxtLink></UiParagraph>
       <UiParagraph><NuxtLink to="/" class="link-hover link">Contact Us</NuxtLink></UiParagraph>
       <UiParagraph><NuxtLink to="/credits" class="link-hover link">Credits</NuxtLink></UiParagraph>
     </nav>
     <nav>
-      <div class="grid grid-flow-col gap-4">
+      <div class="grid grid-flow-col items-center gap-4">
         <NuxtLink to="https://github.com/Quizoot/Quizoot" target="_blank" rel="noopener">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
+            width="32"
+            height="32"
             viewBox="0 0 24 24"
             class="fill-current"
             role="img"
@@ -26,8 +26,8 @@
         <NuxtLink to="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
+            width="32"
+            height="32"
             viewBox="0 0 127.14 96.36"
             role="img"
             aria-describedby="discord-title"

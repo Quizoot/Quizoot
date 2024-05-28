@@ -25,6 +25,6 @@ defineProps({
 
 <style scoped>
 .custom-grid {
-  grid-template-columns: 1fr 0.5px 1fr 1fr;
+  grid-template-columns: 1fr 1px 1fr 1fr;
 }
 </style>

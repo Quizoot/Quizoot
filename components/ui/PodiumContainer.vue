@@ -51,11 +51,15 @@ switch (props.position) {
             : 'w-[60vw] sm:min-h-[25vh]',
       ]"
     >
-      <UiHeadingThree class="font-[600] sm:mt-4 sm:p-[1vh]">{{ rank }}</UiHeadingThree>
-      <UiHeadingFour v-if="!hide" class="font-[500] sm:p-[1vh]">
+      <UiHeadingThree class="font-[600] dark:text-black sm:mt-4 sm:p-[1vh]">
+        {{ rank }}
+      </UiHeadingThree>
+      <UiHeadingFour v-if="!hide" class="font-[500] dark:text-black sm:p-[1vh]">
         {{ name }}
       </UiHeadingFour>
-      <UiHeadingFive v-if="!hide" class="font-[500] sm:mb-4 sm:p-[1vh]">{{ score }}</UiHeadingFive>
+      <UiHeadingFive v-if="!hide" class="font-[500] dark:text-black sm:mb-4 sm:p-[1vh]">
+        {{ score }}
+      </UiHeadingFive>
     </div>
   </div>
 </template>

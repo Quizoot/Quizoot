@@ -75,8 +75,8 @@ const leaveRoom = () => {
           <button class="btn btn-circle btn-ghost btn-md absolute right-2 top-2">✕</button>
         </form>
         <UiHeadingFour class="bottom-2 mb-2 text-center font-[600]">Exit</UiHeadingFour>
-        <UiHeadingFive class="my-4 text-center text-lg"
-          >Are you sure you want to exit?
+        <UiHeadingFive class="my-4 text-center text-lg">
+          Are you sure you want to exit?
         </UiHeadingFive>
         <form method="dialog">
           <label class="form-control w-full">
