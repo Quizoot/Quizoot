@@ -34,7 +34,7 @@
     "nuxt": "^3.11.2",
     "nuxt-simple-robots": "^4.0.0-rc.17",
     "nuxt-viewport": "^2.1.5",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.0",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
