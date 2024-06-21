@@ -79,7 +79,7 @@ const leaveRoom = () => {
           Are you sure you want to exit?
         </UiHeadingFive>
         <form method="dialog">
-          <label class="form-control w-full">
+          <div class="form-control w-full">
             <span class="mt-4 grid grid-cols-2 justify-center gap-2">
               <button class="btn btn-primary btn-md px-4 font-[500]" @click="leaveRoom()">
                 Quit
@@ -91,7 +91,7 @@ const leaveRoom = () => {
                 @click="exitModal()"
               />
             </span>
-          </label>
+          </div>
         </form>
       </div>
       <form method="dialog" class="modal-backdrop">
