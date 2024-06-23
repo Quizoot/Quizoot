@@ -14,9 +14,9 @@ export const useMultiplayerStore = defineStore('multiplayer', () => {
   const timer = ref<number>(-1)
   const timeOut = ref<ReturnType<typeof setTimeout> | null>(null)
 
-  type Player = [uuid: UUID, username: string]
+  type Player = { uuid: UUID; username: string; emoji: string }
   const playerList = ref<Player[]>([])
-  const rankings = ref<{ uuid: UUID; username: string; score: number }[]>([])
+  const rankings = ref<{ player: Player; score: number }[]>([])
 
   const roomCode = ref('')
   const host = ref(false)

@@ -97,11 +97,7 @@ export default defineEventHandler((event) => {
       room.addPlayer(client)
       clientRoom.set(client, room)
       socket.emit('room-joined', roomCode)
-      room.broadcast(
-        'room-player-update',
-        room.joinCode,
-        room.players.map((p) => [p.uuid, p.username]),
-      )
+      roomPlayerUpdate(room)
     })
 
     socket.on('create-room', (region) => {
@@ -155,11 +151,7 @@ export default defineEventHandler((event) => {
       currentRoom.removePlayer(player)
       player.socket.emit('self-kicked', client.uuid)
       socket.emit('player-kicked', player.uuid)
-      currentRoom.broadcast(
-        'room-player-update',
-        currentRoom.joinCode,
-        currentRoom.players.map((p) => [p.uuid, p.username]),
-      )
+      roomPlayerUpdate(currentRoom)
     })
 
     socket.on('host-ban-player', (uuid: UUID) => {
@@ -184,11 +176,7 @@ export default defineEventHandler((event) => {
       currentRoom.banPlayer(player)
       player.socket.emit('self-banned', client.uuid)
       socket.emit('player-banned', player.uuid)
-      currentRoom.broadcast(
-        'room-player-update',
-        currentRoom.joinCode,
-        currentRoom.players.map((p) => [p.uuid, p.username]),
-      )
+      roomPlayerUpdate(currentRoom)
     })
 
     socket.on('host-start-game', (timer?: number) => {
@@ -205,13 +193,13 @@ export default defineEventHandler((event) => {
         socket.emit('invalid-action', 'Not enough players to start the game')
         return
       }
-      currentRoom.broadcast('game-starting', timer || currentRoom.settings.startTimer)
+      currentRoom.broadcast('game-starting', timer || currentRoom.settings.startTimerLength)
 
       setTimeout(() => {
         if (!currentRoom.currentGame) {
           currentRoom.startGame()
         }
-      }, timer || currentRoom.settings.startTimer)
+      }, timer || currentRoom.settings.startTimerLength)
     })
 
     socket.on('host-restart-game', () => {
@@ -262,7 +250,9 @@ export default defineEventHandler((event) => {
       socket.emit(
         'room-player-update',
         clientRoom.get(client)?.joinCode ?? '',
-        clientRoom.get(client)?.players.map((p) => [p.uuid, p.username]) ?? [],
+        clientRoom.get(client)?.players.map((p) => {
+          return { uuid: p.uuid, username: p.username, emoji: p.emoji }
+        }) ?? [],
       )
     })
 
@@ -339,9 +329,15 @@ function removePlayer(
     currentRoom.broadcast('game-error', 'game-not-enough-players', 'All players have left the room')
     currentRoom.currentGame = null
   }
+  roomPlayerUpdate(currentRoom)
+}
+
+function roomPlayerUpdate(currentRoom: Room) {
   currentRoom.broadcast(
     'room-player-update',
     currentRoom.joinCode,
-    currentRoom.players.map((p) => [p.uuid, p.username]),
+    currentRoom.players.map((p) => {
+      return { uuid: p.uuid, username: p.username, emoji: p.emoji }
+    }),
   )
 }

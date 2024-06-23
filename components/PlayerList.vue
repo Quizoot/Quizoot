@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps({
   players: {
-    type: Array as PropType<{ name: string; emoji: string }[]>,
+    type: Array as PropType<{ username: string; emoji: string }[]>,
     required: true,
   },
 })
@@ -11,7 +11,7 @@ defineProps({
   <div class="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3">
     <UiHeadingFour
       v-for="(player, index) in players"
-      :key="player.name"
+      :key="player.username"
       class="overflow-x-clip rounded-xl text-center"
       :class="[['bg-primary', 'bg-secondary', 'bg-accent', 'bg-[#FCC93B]'][index % 4]]"
     >
@@ -21,7 +21,7 @@ defineProps({
         </div>
         <div class="my-2 h-auto justify-center bg-black"></div>
         <UiHeadingFour class="col-span-2 m-6 justify-center text-center dark:text-black">
-          {{ player.name }}
+          {{ player.username }}
         </UiHeadingFour>
       </div>
     </UiHeadingFour>

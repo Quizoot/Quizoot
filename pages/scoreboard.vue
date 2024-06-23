@@ -36,10 +36,11 @@ onMounted(async () => {
     import.meta.client &&
     (multiplayerStore.host ||
       (multiplayerStore.rankings[0] &&
-        multiplayerStore.rankings[0].uuid === multiplayerStore.uuid) ||
+        multiplayerStore.rankings[0].player.uuid === multiplayerStore.uuid) ||
       (multiplayerStore.rankings[1] &&
-        multiplayerStore.rankings[1].uuid === multiplayerStore.uuid) ||
-      (multiplayerStore.rankings[2] && multiplayerStore.rankings[2].uuid === multiplayerStore.uuid))
+        multiplayerStore.rankings[1].player.uuid === multiplayerStore.uuid) ||
+      (multiplayerStore.rankings[2] &&
+        multiplayerStore.rankings[2].player.uuid === multiplayerStore.uuid))
   ) {
     await import('canvas-confetti').then((value) => {
       if (value)
@@ -83,20 +84,29 @@ onMounted(async () => {
       >
         <!--Begin First Column-->
         <UiPodiumContainer
-          :name="(multiplayerStore.rankings[0] && multiplayerStore.rankings[0].username) ?? ''"
           :position="1"
+          :name="
+            (multiplayerStore.rankings[0] && multiplayerStore.rankings[0].player.username) ?? ''
+          "
+          :emoji="(multiplayerStore.rankings[0] && multiplayerStore.rankings[0].player.emoji) ?? ''"
           :score="(multiplayerStore.rankings[0] && multiplayerStore.rankings[0].score) ?? 0"
           :hide="!multiplayerStore.rankings[0]"
         />
         <UiPodiumContainer
-          :name="(multiplayerStore.rankings[1] && multiplayerStore.rankings[1].username) ?? ''"
           :position="2"
+          :name="
+            (multiplayerStore.rankings[1] && multiplayerStore.rankings[1].player.username) ?? ''
+          "
+          :emoji="(multiplayerStore.rankings[1] && multiplayerStore.rankings[1].player.emoji) ?? ''"
           :score="(multiplayerStore.rankings[1] && multiplayerStore.rankings[1].score) ?? 0"
           :hide="!multiplayerStore.rankings[1]"
         />
         <UiPodiumContainer
-          :name="(multiplayerStore.rankings[2] && multiplayerStore.rankings[2].username) ?? ''"
           :position="3"
+          :name="
+            (multiplayerStore.rankings[2] && multiplayerStore.rankings[2].player.username) ?? ''
+          "
+          :emoji="(multiplayerStore.rankings[2] && multiplayerStore.rankings[2].player.emoji) ?? ''"
           :score="(multiplayerStore.rankings[2] && multiplayerStore.rankings[2].score) ?? 0"
           :hide="!multiplayerStore.rankings[2]"
         />

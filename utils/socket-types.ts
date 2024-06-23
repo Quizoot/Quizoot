@@ -28,7 +28,10 @@ export interface ServerToClientEvents {
   'room-joined': (roomCode: string) => void
   'room-created': (roomCode: string) => void
   'room-left': () => void
-  'room-player-update': (roomCode: string, players: [uuid: UUID, username: string][]) => void
+  'room-player-update': (
+    roomCode: string,
+    players: { uuid: UUID; username: string; emoji: string }[],
+  ) => void
 
   // TODO: add 'update-room-settings' event
   'update-room-settings': (settings: Record<string, unknown>) => void
@@ -41,7 +44,9 @@ export interface ServerToClientEvents {
 
   'game-starting': (timer: number) => void
   'game-started': (questionCount: number) => void
-  'game-ended': (rankings: { uuid: UUID; username: string; score: number }[]) => void
+  'game-ended': (
+    rankings: { player: { uuid: UUID; username: string; emoji: string }; score: number }[],
+  ) => void
   'game-restarted': () => void
   'game-error': (
     errorType: 'game-not-started' | 'game-already-started' | 'game-not-enough-players',

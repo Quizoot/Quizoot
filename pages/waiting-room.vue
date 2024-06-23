@@ -32,10 +32,10 @@ if (socket.value === null) {
 }
 
 function getPlayerList() {
-  const list = []
+  const list: { username: string; emoji: string }[] = []
   for (const player of multiplayerStore.playerList) {
-    if (player[0] !== multiplayerStore.uuid) {
-      list.push({ name: player[1], emoji: '🐸' })
+    if (multiplayerStore.host && player.uuid !== multiplayerStore.uuid) {
+      list.push({ username: player.username, emoji: player.emoji })
     }
   }
   return list

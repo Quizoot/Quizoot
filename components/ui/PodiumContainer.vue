@@ -4,6 +4,10 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  emoji: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

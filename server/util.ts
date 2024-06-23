@@ -9,6 +9,7 @@ import type { EventParams } from '@socket.io/component-emitter'
 export class Client {
   private _username
   private readonly _uuid: UUID
+  private _emoji = '🙂'
   private readonly _creationDate = new Date()
   private _lastPacket = new Date()
   private _gamesPlayed: UUID[] = []
@@ -30,6 +31,14 @@ export class Client {
 
   set username(username: string) {
     this._username = username
+  }
+
+  get emoji() {
+    return this._emoji
+  }
+
+  set emoji(emoji: string) {
+    this._emoji = emoji
   }
 
   get creationDate() {
@@ -218,7 +227,10 @@ export class Game {
         this._rankings
           .filter((gc) => gc != this.getGameClient(this._room.host))
           .map((c) => {
-            return { uuid: c.uuid, username: c.client.username, score: c.score }
+            return {
+              player: { uuid: c.uuid, username: c.client.username, emoji: c.client.emoji },
+              score: c.score,
+            }
           }),
       )
       return
@@ -244,12 +256,12 @@ export class Game {
       this._room.broadcast(
         'question-allow-answers',
         question.shuffledAnswers(),
-        this._room.settings.questionTimer,
+        this._room.settings.questionLength,
       )
 
       this._questionTimeoutId = setTimeout(() => {
         this.finishQuestion()
-      }, this._room.settings.questionTimer)
+      }, this._room.settings.questionLength)
     }, this._room.settings.allowAnswerTimer)
   }
 
@@ -282,38 +294,35 @@ export class Game {
   generatePoints(answerStart: Date | null, client: GameClient, currentRoom: Room) {
     const clientAnswerTime = client.getAnswerTime()
     if (!clientAnswerTime || !answerStart)
-      return { total: currentRoom.settings.questionPoints, streakBonus: 0 }
-    let points = currentRoom.settings.questionPointsDecayMinimumPoints
+      return { total: currentRoom.settings.questionBasePoints, streakBonus: 0 }
+    let points = currentRoom.settings.questionDecayMinimumPoints
 
     const timeDifference =
-      clientAnswerTime.getTime() -
-      answerStart.getTime() -
-      currentRoom.settings.questionPointsDecayDelay
+      clientAnswerTime.getTime() - answerStart.getTime() - currentRoom.settings.questionDecayDelay
 
-    const maxPoints = currentRoom.settings.questionPoints - points
+    const maxPoints = currentRoom.settings.questionBasePoints - points
     const pointsPerMs =
-      maxPoints /
-      (currentRoom.settings.questionTimer - currentRoom.settings.questionPointsDecayDelay)
+      maxPoints / (currentRoom.settings.questionLength - currentRoom.settings.questionDecayDelay)
 
-    if (timeDifference < 0 || !currentRoom.settings.questionPointsDecayEnabled) {
+    if (timeDifference < 0 || !currentRoom.settings.questionDecayEnabled) {
       points += maxPoints
     } else {
       points +=
         pointsPerMs *
-        (currentRoom.settings.questionTimer -
-          currentRoom.settings.questionPointsDecayDelay -
+        (currentRoom.settings.questionLength -
+          currentRoom.settings.questionDecayDelay -
           timeDifference)
     }
 
     let streakBonus = 0
     if (
-      currentRoom.settings.questionPointsStreakEnabled &&
-      client.getStreak() >= currentRoom.settings.questionPointsStreakMinimum
+      currentRoom.settings.questionStreakEnabled &&
+      client.getStreak() >= currentRoom.settings.questionStreakMinimum
     ) {
       streakBonus =
-        (client.getStreak() - currentRoom.settings.questionPointsStreakMinimum) *
-          currentRoom.settings.questionPointsStreakRecurringBonus +
-        currentRoom.settings.questionPointsStreakInitialBonus
+        (client.getStreak() - currentRoom.settings.questionStreakMinimum) *
+          currentRoom.settings.questionStreakRecurringBonus +
+        currentRoom.settings.questionStreakInitialBonus
       points += streakBonus
     }
 

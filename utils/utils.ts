@@ -1,22 +1,49 @@
 const quizzes = new Map<string, Quiz>()
 
 export class RoomSettings {
+  /* the maximum number of players allowed in the room */
   maxPlayers = 100
-  startTimer = 0
+  /* whether the start timer is enabled */
+  startTimerEnabled = true
+  /* length of time in milliseconds until the game starts after clicking start */
+  startTimerLength = 0
+  /* number of questions to ask */
   questionCount = 10
-  questionTimer = 20000
-  questionPoints = 1000
+  /* length of time in milliseconds to answer a question */
+  questionLength = 20000
+
+  /* whether to allow players to choose their own emojis */
+  playerEmojis = true
+  /* whether to allow players to choose their own names */
+  playerCustomNames = true
+
+  /* whether autoplay is enabled */
+  autoplayEnabled = false
+  /* length of time in milliseconds before the next screen is shown */
+  autoplayTimer = 5000
+
+  /* the number of points awarded for answering a question correctly */
+  questionBasePoints = 1000
+  /* length of time before the question is sent to the player's device after shown to the host */
   allowAnswerTimer = 0
 
-  questionPointsDecayEnabled = true
-  questionPointsDecayDelay = 1000
-  questionPointsDecayMinimumPoints = 500
+  /* whether to enable point decay */
+  questionDecayEnabled = true
+  /* length of time in milliseconds before the question starts to decay */
+  questionDecayDelay = 1000
+  /* the minimum number of points a question can decay to */
+  questionDecayMinimumPoints = 500
 
-  questionPointsStreakEnabled = true
-  questionPointsStreakMinimum = 3
-  questionPointsStreakInitialBonus = 150
-  questionPointsStreakRecurringBonus = 50
+  /* whether to enable streak bonuses */
+  questionStreakEnabled = true
+  /* the minimum number of questions needed to start a streak */
+  questionStreakMinimum = 3
+  /* the initial bonus for starting a streak */
+  questionStreakInitialBonus = 150
+  /* the bonus for each question in a streak */
+  questionStreakRecurringBonus = 50
 
+  /* the current gamemode selected */
   quiz = 'world'
 
   constructor(settings?: Partial<RoomSettings>) {
