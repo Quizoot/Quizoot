@@ -1610,7 +1610,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.12.2, @nuxt/kit@npm:^3.10.3, @nuxt/kit@npm:^3.11.1, @nuxt/kit@npm:^3.11.2, @nuxt/kit@npm:^3.12.1, @nuxt/kit@npm:^3.5.0":
+"@nuxt/kit@npm:3.12.2, @nuxt/kit@npm:^3.10.3, @nuxt/kit@npm:^3.11.1, @nuxt/kit@npm:^3.11.2, @nuxt/kit@npm:^3.12.1, @nuxt/kit@npm:^3.12.2, @nuxt/kit@npm:^3.5.0":
   version: 3.12.2
   resolution: "@nuxt/kit@npm:3.12.2"
   dependencies:
@@ -1790,6 +1790,18 @@ __metadata:
     pkg-types: "npm:^1.1.0"
     semver: "npm:^7.6.0"
   checksum: 10c0/bc059e73791909ea57454602f2f072708ee346770acf33d9fade1a37ec1506ceffa5b7c7b66a0f60d4e60aca0e9c8d3399deeb4fbe6abbc22604307157b8a592
+  languageName: node
+  linkType: hard
+
+"@nuxtjs/color-mode@npm:^3.4.2":
+  version: 3.4.2
+  resolution: "@nuxtjs/color-mode@npm:3.4.2"
+  dependencies:
+    "@nuxt/kit": "npm:^3.12.2"
+    pathe: "npm:^1.1.2"
+    pkg-types: "npm:^1.1.1"
+    semver: "npm:^7.6.2"
+  checksum: 10c0/26cc3ec6bed29ee5733ab538adb89c7706b88a4cbe78028cc135e0c5b29a5a387017bd8057d5856945016ed6d47e5673f9840cab1ec58b7edd85f92c5f9013df
   languageName: node
   linkType: hard
 
@@ -8726,7 +8738,7 @@ __metadata:
     "@nuxt/eslint": "npm:0.3.13"
     "@nuxt/fonts": "npm:^0.7.0"
     "@nuxt/image": "npm:^1.7.0"
-    "@nuxtjs/color-mode": "npm:^3.4.1"
+    "@nuxtjs/color-mode": "npm:^3.4.2"
     "@nuxtjs/tailwindcss": "npm:^6.12.0"
     "@pinia/nuxt": "npm:^0.5.1"
     "@tailwindcss/typography": "npm:^0.5.13"
