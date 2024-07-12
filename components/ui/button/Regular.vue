@@ -9,13 +9,21 @@ defineProps({
     type: Boolean,
     default: true,
   },
+  textSize: {
+    type: Boolean,
+    default: true,
+  },
 })
 </script>
 
 <template>
   <button
-    class="text-md btn font-[400] md:text-xl"
-    :class="[disabled ? 'btn-disabled' : '', shadow ? 'shadow-md' : '']"
+    class="btn font-[400]"
+    :class="[
+      disabled ? 'btn-disabled' : '',
+      shadow ? 'shadow-md' : '',
+      textSize ? 'text-md md:text-xl' : '',
+    ]"
   >
     <slot></slot>
   </button>
