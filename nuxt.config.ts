@@ -7,12 +7,14 @@ export default defineNuxtConfig({
     baseURL: routerBase,
     buildAssetsDir: 'assets',
   },
+
   devtools: {
     enabled: true,
     timeline: {
       enabled: true,
     },
   },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/image',
@@ -24,9 +26,11 @@ export default defineNuxtConfig({
     'nuxt-simple-robots',
     '@pinia/nuxt',
   ],
+
   experimental: {
     payloadExtraction: false,
   },
+
   typescript: {
     strict: true,
     typeCheck: true,
@@ -39,23 +43,28 @@ export default defineNuxtConfig({
       maxAge: 31536000,
     },
   },
+
   colorMode: {
     classSuffix: '',
     preference: 'light',
     dataValue: 'theme',
   },
+
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => tag.startsWith('swiper-'),
     },
   },
+
   site: {
     name: 'Quizoot',
     description: 'Play Quizoot online with friends!',
   },
+
   eslint: {
     checker: true,
   },
+
   fonts: {
     families: [
       {
@@ -65,4 +74,6 @@ export default defineNuxtConfig({
       },
     ],
   },
+
+  compatibilityDate: '2024-07-12',
 })
