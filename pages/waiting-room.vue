@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import xss from 'xss'
 
+const roomSettingPage = ref<'room' | 'question' | 'advanced'>('room')
+
 const singlePlayerStore = useSingleplayerStore()
 singlePlayerStore.reset()
 
@@ -40,6 +42,29 @@ function getPlayerList() {
   }
   return list
 }
+
+const modal = ref<HTMLDialogElement | null>(null)
+
+const showModal = () => {
+  if (modal.value) {
+    modal.value.showModal()
+  }
+}
+
+const closeModal = () => {
+  if (modal.value) {
+    modal.value.close()
+  }
+}
+
+const el = ref(null)
+useSwipe(el, {
+  onSwipeEnd(_, direction) {
+    if (direction === 'down') {
+      closeModal()
+    }
+  },
+})
 </script>
 
 <template>
@@ -93,7 +118,11 @@ function getPlayerList() {
               >
                 Start
               </UiButtonRegular>
-              <div class="setting-button-placement btn btn-circle fixed mx-1">
+
+              <button
+                class="setting-button-placement btn btn-circle fixed mx-1"
+                @click="showModal()"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -113,7 +142,7 @@ function getPlayerList() {
                     d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                   />
                 </svg>
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -176,6 +205,48 @@ function getPlayerList() {
         </UiHeadingOne>
       </div>
     </div>
+    <!-- Settings modal -->
+    <dialog id="room_settings_modal" ref="modal" class="modal modal-bottom sm:modal-middle">
+      <div ref="el" class="modal-box">
+        <form method="dialog">
+          <button class="btn btn-circle btn-ghost btn-md absolute right-2 top-2">✕</button>
+        </form>
+        <UiHeadingFour class="bottom-2 mb-2 text-center text-lg font-bold"
+          >Room Settings</UiHeadingFour
+        >
+        <!-- Join element with the 3 options -->
+        <div class="join mb-4 flex">
+          <input
+            v-model="roomSettingPage"
+            value="room"
+            class="btn join-item basis-1/3 font-[500]"
+            type="radio"
+            name="options"
+            aria-label="Room"
+            checked
+          />
+          <input
+            v-model="roomSettingPage"
+            value="question"
+            class="btn join-item basis-1/3 font-[500]"
+            type="radio"
+            name="options"
+            aria-label="Question"
+          />
+          <input
+            v-model="roomSettingPage"
+            value="advanced"
+            class="btn join-item basis-1/3 font-[500]"
+            type="radio"
+            name="options"
+            aria-label="Advanced"
+          />
+        </div>
+        <RoomSettingsRoom v-if="roomSettingPage === 'room'" />
+        <RoomSettingsQuestion v-if="roomSettingPage === 'question'" />
+        <RoomSettingsAdvanced v-if="roomSettingPage === 'advanced'" />
+      </div>
+    </dialog>
   </div>
 </template>
 
