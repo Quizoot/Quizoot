@@ -2632,13 +2632,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/core@npm:1.10.1":
-  version: 1.10.1
-  resolution: "@shikijs/core@npm:1.10.1"
-  checksum: 10c0/586711b6485833323937f1193635e1d7ffc63ac9e664aa3fef16c7583dfdbaf4362bb268712ebaba9113a96f871e6e1f993f1c8eb3f558353880a54e436002a9
-  languageName: node
-  linkType: hard
-
 "@shikijs/core@npm:1.10.3":
   version: 1.10.3
   resolution: "@shikijs/core@npm:1.10.3"
@@ -8782,7 +8775,7 @@ __metadata:
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.1.3"
     nuxt: "npm:^3.12.3"
-    nuxt-simple-robots: "npm:^4.0.0-rc.20"
+    nuxt-simple-robots: "npm:^4.0.1"
     nuxt-viewport: "npm:^2.1.5"
     pinia: "npm:^2.1.7"
     prettier: "npm:^3.3.2"
@@ -8802,9 +8795,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"nuxt-simple-robots@npm:^4.0.0-rc.20":
-  version: 4.0.0-rc.20
-  resolution: "nuxt-simple-robots@npm:4.0.0-rc.20"
+"nuxt-simple-robots@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "nuxt-simple-robots@npm:4.0.1"
   dependencies:
     "@nuxt/devtools-kit": "npm:^1.3.9"
     "@nuxt/kit": "npm:^3.12.3"
@@ -8812,19 +8805,19 @@ __metadata:
     defu: "npm:^6.1.4"
     flatted: "npm:^3.3.1"
     floating-vue: "npm:^5.2.2"
-    nuxt-site-config: "npm:^2.2.13"
-    nuxt-site-config-kit: "npm:^2.2.13"
+    nuxt-site-config: "npm:^2.2.14"
+    nuxt-site-config-kit: "npm:^2.2.14"
     pathe: "npm:^1.1.2"
     pkg-types: "npm:^1.1.3"
-    shiki: "npm:1.10.1"
+    shiki: "npm:1.10.3"
     sirv: "npm:^2.0.4"
     std-env: "npm:^3.7.0"
     ufo: "npm:^1.5.3"
-  checksum: 10c0/3377dc1d96e6f6c16b3da4a1213b47c2a139c0efa0386bd9380ac8d646daa41972d4bb8e15ac55c40c29dca2f1a57e1a387dbbb315d87e43649547f64b5d00d1
+  checksum: 10c0/8c6e0679bb5b1dba619dc50d1dfba2d5f7fb133b35fe9272a9aa76a0cf99c695bf75b5b1dae9f105c024b92ac9050b53a475ee3a3b1738e28ad7facfd6e66577
   languageName: node
   linkType: hard
 
-"nuxt-site-config-kit@npm:2.2.14, nuxt-site-config-kit@npm:^2.2.13":
+"nuxt-site-config-kit@npm:2.2.14, nuxt-site-config-kit@npm:^2.2.14":
   version: 2.2.14
   resolution: "nuxt-site-config-kit@npm:2.2.14"
   dependencies:
@@ -8838,7 +8831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt-site-config@npm:^2.2.13":
+"nuxt-site-config@npm:^2.2.14":
   version: 2.2.14
   resolution: "nuxt-site-config@npm:2.2.14"
   dependencies:
@@ -10730,16 +10723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:1.10.1":
-  version: 1.10.1
-  resolution: "shiki@npm:1.10.1"
-  dependencies:
-    "@shikijs/core": "npm:1.10.1"
-  checksum: 10c0/ba0fbb6ffc1e08b4089c679a84e8c2800a7e6609519ada3892831b691d35e73cface539c486e888fc77aa48a70310ceded990158d2153a963efc2d1b084a4e5f
-  languageName: node
-  linkType: hard
-
-"shiki@npm:^1.10.2":
+"shiki@npm:1.10.3, shiki@npm:^1.10.2":
   version: 1.10.3
   resolution: "shiki@npm:1.10.3"
   dependencies:
