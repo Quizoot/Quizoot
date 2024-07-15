@@ -8789,7 +8789,7 @@ __metadata:
     prettier-plugin-tailwindcss: "npm:^0.6.5"
     socket.io: "npm:^4.7.5"
     socket.io-client: "npm:^4.7.5"
-    swiper: "npm:^11.1.4"
+    swiper: "npm:^11.1.5"
     tailwindcss: "npm:^3.4.4"
     typescript: "npm:5.5.3"
     uncrypto: "npm:^0.1.3"
@@ -11280,10 +11280,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiper@npm:^11.1.4":
-  version: 11.1.4
-  resolution: "swiper@npm:11.1.4"
-  checksum: 10c0/a1e4b87f414f67f5da6a07b33d5ee20e54062d21f8bed88195d5d56decff6afddf683e130118b7fa12668de221f794ae63f6c073761b683a4b90bbd5eb585202
+"swiper@npm:^11.1.5":
+  version: 11.1.5
+  resolution: "swiper@npm:11.1.5"
+  checksum: 10c0/a5cd20c9d858a98ccc70a71b38799e7597c03da27143379365bbcd4dbed750d48c02ff2cf8a6a39870f65e1d2fec9aac1a715486a8a5878b578869fbc3b5c953
   languageName: node
   linkType: hard
 
