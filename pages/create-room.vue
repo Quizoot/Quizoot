@@ -13,5 +13,3 @@ register()
     <TheFooter />
   </div>
 </template>
-
-<style scoped></style>

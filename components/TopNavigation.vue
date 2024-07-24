@@ -108,7 +108,7 @@ useSwipe(el, {
       <div class="navbar-start">
         <div class="dropdown">
           <!-- Smaller devices -->
-          <button tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <button tabindex="0" class="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -125,7 +125,6 @@ useSwipe(el, {
             </svg>
           </button>
           <ul
-            tabindex="0"
             class="menu dropdown-content menu-sm z-[98] mt-3 w-40 rounded-box bg-base-100 p-2 shadow"
           >
             <li>
@@ -141,7 +140,7 @@ useSwipe(el, {
       <!-- Large devices -->
       <div class="navbar-center hidden lg:flex">
         <div class="dropdown dropdown-hover">
-          <button tabindex="0" role="button" class="btn m-1 shadow">
+          <button tabindex="0" class="btn m-1 shadow">
             <UiHeadingFive class="font-[500]">Play</UiHeadingFive>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +179,6 @@ useSwipe(el, {
             viewBox="0 0 24 24"
             fill="currentColor"
             class="h-6 w-6"
-            role="img"
             aria-describedby="profile-page-title"
           >
             <title id="profile-page-title">Profile Page</title>
@@ -232,7 +230,7 @@ useSwipe(el, {
                 class="grow"
                 :maxlength="4"
                 :required="true"
-                aria-description="Room code entry field"
+                aria-label="Room code entry field"
                 oninput="this.value = this.value.replace(' ', '').toUpperCase()"
               />
             </span>
@@ -258,7 +256,7 @@ useSwipe(el, {
                 class="grow"
                 :maxlength="20"
                 :required="true"
-                aria-description="Username entry field"
+                aria-label="Username entry field"
                 oninput="this.value = this.value.replace(' ', '')"
               />
             </span>
@@ -286,5 +284,3 @@ useSwipe(el, {
     </dialog>
   </div>
 </template>
-
-<style scoped></style>

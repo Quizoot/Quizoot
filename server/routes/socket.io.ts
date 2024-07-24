@@ -193,13 +193,13 @@ export default defineEventHandler((event) => {
         socket.emit('invalid-action', 'Not enough players to start the game')
         return
       }
-      currentRoom.broadcast('game-starting', timer || currentRoom.settings.startTimerLength)
+      currentRoom.broadcast('game-starting', timer ?? currentRoom.settings.startTimerLength)
 
       setTimeout(() => {
         if (!currentRoom.currentGame) {
           currentRoom.startGame()
         }
-      }, timer || currentRoom.settings.startTimerLength)
+      }, timer ?? currentRoom.settings.startTimerLength)
     })
 
     socket.on('host-restart-game', () => {
@@ -245,7 +245,7 @@ export default defineEventHandler((event) => {
         client.uuid,
         clientRoom.get(client)?.joinCode ?? '',
         clientRoom.get(client)?.host === client,
-        clientRoom.get(client)?.currentGame?.getGameClient(client)?.score || 0,
+        clientRoom.get(client)?.currentGame?.getGameClient(client)?.score ?? 0,
       )
       socket.emit(
         'room-player-update',

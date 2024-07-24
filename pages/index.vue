@@ -23,5 +23,3 @@ socketStore.disconnect()
     <TheFooter />
   </div>
 </template>
-
-<style scoped></style>

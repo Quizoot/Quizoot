@@ -102,39 +102,9 @@ const continents: CardItem[] = [
     description: 'Countries specific to Oceania.',
   },
 ]
-
-// const countries: CardItem[] = [
-//   {
-//     title: 'Canada',
-//     openLinkFunction() {
-//       generateQuestion('countries', 'canada')
-//     },
-//     image: 'images/Canada Map.jpg',
-//     description: 'Provinces of Canada.',
-//   },
-//   {
-//     title: 'Japan',
-//     openLinkFunction() {
-//       generateQuestion('countries', 'japan')
-//     },
-//     image: 'images/Japan Map.jpg',
-//     description: 'Prefectures of Japan.',
-//   },
-//   {
-//     title: 'United States of America',
-//     openLinkFunction() {
-//       generateQuestion('countries', 'usa')
-//     },
-//     image: 'images/USA Map.jpg',
-//     description: 'The 50 states of the USA.',
-//   },
-// ]
 </script>
 
 <template>
   <CardSlider :items="world" title="World" />
   <CardSlider :items="continents" title="Continents" />
-  <!--  <CardSlider :items="countries" title="Countries" />-->
 </template>
-
-<style scoped></style>

@@ -22,7 +22,7 @@ let restcountries: Country[] = []
 
 async function getCountries() {
   if (restcountries.length === 0) {
-    restcountries = (await ofetch('https://restcountries.com/v3.1/all')) as Country[]
+    restcountries = await ofetch('https://restcountries.com/v3.1/all')
     restcountries.find((c) => {
       // use https://flagpedia.net for all countries
       if (!c.flags.svg.includes('flagcdn.com') || !c.flags.png.includes('flagcdn.com')) {
@@ -49,6 +49,14 @@ export const filters = [
 
 export async function createQuizzes() {
   return Promise.all(filters.map((f) => createQuiz(f)))
+}
+
+function getQuizFilter(countryBuilder: CountriesBuilder, countries: Country[]) {
+  return (answers: Answer[]) => {
+    return answers.filter((a) =>
+      countryBuilder.build(countries).some((c) => c.name.common === a.answer),
+    )
+  }
 }
 
 export async function createQuiz(filter: (typeof filters)[number]) {
@@ -104,11 +112,7 @@ export async function createQuiz(filter: (typeof filters)[number]) {
       answer: c.name.common,
       image: c.flags.svg,
     }))
-    const quizFilter = (answers: Answer[]) => {
-      return answers.filter((a) =>
-        countryBuilder.build(countries).some((c) => c.name.common === a.answer),
-      )
-    }
+    const quizFilter = getQuizFilter(countryBuilder, countries)
     const quiz = new GenerativeQuiz(answers, quizFilter)
     return addQuiz(filter, quiz)
   })

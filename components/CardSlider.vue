@@ -31,15 +31,21 @@ defineProps({
   },
 })
 
+const cardBreakpoints = () => {
+  if (useViewport().isGreaterOrEquals('desktopWide')) {
+    return 4
+  } else if (useViewport().isGreaterOrEquals('desktop')) {
+    return 3
+  } else if (useViewport().isGreaterOrEquals('tablet')) {
+    return 2
+  } else {
+    return 1
+  }
+}
+
 const cardCount = ref(3)
 const updateCardCount = () => {
-  cardCount.value = useViewport().isLessThan('desktop')
-    ? useViewport().isLessThan('tablet')
-      ? 1
-      : 2
-    : useViewport().isGreaterOrEquals('desktopWide')
-      ? 4
-      : 3
+  cardCount.value = cardBreakpoints()
 }
 
 watch(useViewport().breakpoint, () => {
@@ -88,5 +94,3 @@ updateCardCount()
     </div>
   </div>
 </template>
-
-<style scoped></style>

@@ -65,5 +65,3 @@ const openLink = () => {
     </span>
   </button>
 </template>
-
-<style scoped></style>

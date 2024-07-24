@@ -32,3 +32,4 @@ logs
 !.yarn/versions
 
 .eslintcache
+.scannerwork

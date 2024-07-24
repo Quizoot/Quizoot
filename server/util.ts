@@ -390,7 +390,7 @@ export class Room {
 
   constructor(host: Client, joinCode?: `${string & { length: typeof codeLength }}`) {
     this._host = host
-    this._joinCode = joinCode || generateJoinCode()
+    this._joinCode = joinCode ?? generateJoinCode()
   }
 
   get joinCode() {

@@ -38,5 +38,3 @@ const toast = computed(() => toastStore.getToast())
     </div>
   </div>
 </template>
-
-<style scoped></style>

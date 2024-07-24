@@ -212,5 +212,3 @@ watch(socket, () => {
     </main>
   </div>
 </template>
-
-<style scoped></style>

@@ -20,5 +20,3 @@ const svg = () => {
   <!-- eslint-disable-next-line vue/no-v-html -->
   <div @click="copyRoomCode(safeRoomCode, hostname)" v-html="svg()"></div>
 </template>
-
-<style scoped></style>

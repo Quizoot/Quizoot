@@ -10,8 +10,6 @@
 }
 .loader {
   --content-color: #000;
-}
-.loader {
   --w: 3ch;
   font-weight: bold;
   font-family: monospace;
