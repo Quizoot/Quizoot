@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import xss from 'xss'
+import { copyRoomCode } from '~/utils/client'
 
 const roomSettingPage = ref<'room' | 'question' | 'advanced'>('room')
 

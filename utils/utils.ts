@@ -114,7 +114,7 @@ export class Question {
   }
 }
 
-export interface QuizOptions {}
+export type QuizOptions = object
 
 export class Quiz {
   protected _questions: Question[]

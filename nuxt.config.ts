@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     'nuxt-viewport',
     '@vueuse/nuxt',
-    'nuxt-simple-robots',
+    '@nuxtjs/robots',
     '@pinia/nuxt',
   ],
 

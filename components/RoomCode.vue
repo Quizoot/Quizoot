@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { renderSVG } from 'uqr'
 import xss from 'xss'
+import { copyRoomCode } from '~/utils/client'
+
 const props = defineProps({
   roomCode: {
     type: String,
